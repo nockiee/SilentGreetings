@@ -23,7 +23,7 @@ public class FCommand implements CommandExecutor {
             return true;
         }
 
-        String lastDeath = plugin.getPlayerData().getLastDeath(player.getUniqueId());
+        String lastDeath = plugin.getPlayerData().getGlobalLastDeath();
         if (lastDeath == null || System.currentTimeMillis() - Long.parseLong(lastDeath.split(":")[0]) >
             plugin.getConfig().getInt("settings.timeouts.respect") * 1000L) {
             sender.sendMessage(MessageUtils.colorize(plugin.getConfig().getString("messages.errors.no-recent-death")));

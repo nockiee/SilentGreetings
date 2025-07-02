@@ -25,6 +25,15 @@ public class PlayerData {
         save();
     }
 
+    public void setGlobalLastDeath(String playerName, long timestamp) {
+        data.set("global-last-death", timestamp + ":" + playerName);
+        save();
+    }
+
+    public String getGlobalLastDeath() {
+        return data.getString("global-last-death");
+    }
+
     private void save() {
         try {
             data.save(file);

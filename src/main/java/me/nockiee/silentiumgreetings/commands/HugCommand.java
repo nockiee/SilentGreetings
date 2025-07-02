@@ -3,6 +3,7 @@ package me.nockiee.silentiumgreetings.commands;
 import me.nockiee.silentiumgreetings.SilentiumGreetings;
 import me.nockiee.silentiumgreetings.utils.MessageUtils;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -60,6 +61,7 @@ public class HugCommand implements CommandExecutor {
         );
 
         target.getWorld().spawnParticle(Particle.HEART, target.getLocation().add(0, 1.5, 0), 5);
+        target.playSound(target.getLocation(), Sound.ENTITY_CAT_PURR, 1.0f, 1.0f);
         plugin.getCooldownManager().setCooldown(
             player, 
             "hug", 

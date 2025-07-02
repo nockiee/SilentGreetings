@@ -3,29 +3,34 @@ settings:
     hug: 3.0
     hug-message: 50.0
     greet-message: 50.0
-  
+
   timeouts:
     respect: 60
     cooldown-hug: 10
     cooldown-greet: 5
 
-  messages:
-    greetings:
-      - "&e{player1} &fприветствует &a{player2}"
-      - "&6{player1} &fмашет &b{player2}"
-    
-    hugs:
-      - "&c❤ &6{player1} &fобнимает &a{player2} &c❤"
-      - "&d⊂((・▽・))⊃ &e{player1} &f→ &b{player2}"
-    
-    respects:
-      - "&8⚰ &7{player} почтил(а) память &f{dead_player} &8⚰"
-      - "&f🕯 {player} скорбит по &c{dead_player} &f🕯"
-    
-    errors:
-      no-target: "&cИгрок не найден! Подойдите ближе (макс. {distance} блоков)"
-      player-offline: "&cИгрок оффлайн!"
-      cooldown: "&eПодождите {time} сек."
-      no-recent-death: "&7Нет недавних смертей"
-      usage: "&eИспользование: &a/hi <ник> &7или &a/q <ник>"
-      self-action: "&cНельзя выполнить это действие на себе"
+messages:
+  greetings:
+    - "<#7ed957>{player1} <#e0e0e0>приветствует <#7ec8e3>{player2}"
+    - "<#7ec8e3>{player1} <#e0e0e0>машет <#7ed957>{player2}"
+    - "<#e0e0e0>{player1} <#7ed957>улыбается <#7ec8e3>{player2}"
+    - "<#7ed957>{player1} <#e0e0e0>желает хорошего дня <#7ec8e3>{player2}"
+
+  hugs:
+    - "<#f7b2ad>🤗 <#7ed957>{player1} <#e0e0e0>обнимает <#7ec8e3>{player2} <#f7b2ad>🤗"
+    - "<#7ec8e3>⊂((・▽・))⊃ <#e0e0e0>{player1} <#7ed957>→ <#e0e0e0>{player2}"
+    - "<#e0e0e0>{player1} <#7ed957>дарит теплые объятия <#7ec8e3>{player2}"
+    - "<#7ed957>{player1} <#e0e0e0>крепко обнимает <#7ec8e3>{player2}"
+
+  respects:
+    - "<#bdbdbd>⚰ <#e0e0e0>{player} почтил(а) память <#bdbdbd>{dead_player} <#bdbdbd>⚰"
+    - "<#e0e0e0>🕯 {player} скорбит по <#bdbdbd>{dead_player} <#e0e0e0>🕯"
+    - "<#bdbdbd>{player} <#e0e0e0>вспоминает <#bdbdbd>{dead_player}"
+
+  errors:
+    no-target: "<#f08080>Игрок не найден! Подойдите ближе (макс. {distance} блоков)"
+    player-offline: "<#f08080>Игрок оффлайн!"
+    cooldown: "<#ffe066>Подождите {time} сек."
+    no-recent-death: "<#bdbdbd>Нет недавних смертей"
+    usage: "<#ffe066>Использование: <#7ed957>/hi <ник> <#bdbdbd>или <#7ed957>/q <ник>"
+    self-action: "<#f08080>Нельзя выполнить это действие на себе"
