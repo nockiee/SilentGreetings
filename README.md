@@ -12,9 +12,9 @@ A lightweight Minecraft plugin that adds fun social interaction commands for pla
 
 | Command | Aliases | Description | Cooldown |
 |---------|---------|-------------|----------|
-| `/hi <player>` | `/q`, `/greeting` | Greet another player | 5 seconds |
-| `/hug <player>` | - | Hug another player | 10 seconds |
-| `/f` | - | Pay respects | - |
+| `/hi <player>` | `/q`, `/greeting`, `/hi`, `/hello`  | Greet another player | 5 seconds (editable) |
+| `/hug <player>` | `/neck`, `/hg` | Hug another player | 10 seconds (editable) |
+| `/f` | `/pressf`, `/respect` | Pay respects | - |
 
 ## Building
 

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.nockiee</groupId>
     <artifactId>Silentium-Greetings</artifactId>
-    <version>1.3.7</version>
+    <version>1.3.8</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
