@@ -24,6 +24,8 @@ public class SilentiumGreetings extends JavaPlugin implements Listener {
         getCommand("hi").setExecutor(new GreetCommand(this));
         getCommand("hug").setExecutor(new HugCommand(this));
         getCommand("f").setExecutor(new FCommand(this));
+        getCommand("bye").setExecutor(new ByeCommand(this));    // <-- добавить
+        getCommand("five").setExecutor(new FiveCommand(this));  // <-- добавить
         getServer().getPluginManager().registerEvents(this, this);
 
         getLogger().info("Плагин успешно активирован!");

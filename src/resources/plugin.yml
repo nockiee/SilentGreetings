@@ -14,3 +14,9 @@ commands:
   f:
     description: "Почтить память"
     alliases: [pressf, respect]
+  bye:
+    description: "Попрощаться с игроком"
+    aliases: [goodbye, bb]
+  five:
+    description: "Дать пять игроку"
+    aliases: [givefive, highfive]

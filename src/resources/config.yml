@@ -3,11 +3,14 @@ settings:
     hug: 3.0
     hug-message: 50.0
     greet-message: 50.0
+    five: 5.0
+    five-message: 50.0
 
   timeouts:
     respect: 60
     cooldown-hug: 10
     cooldown-greet: 5
+    cooldown-five: 10   # <--- добавлено
 
 messages:
   greetings:
@@ -34,3 +37,13 @@ messages:
     no-recent-death: "<#bdbdbd>Нет недавних смертей"
     usage: "<#ffe066>Использование: <#7ed957>/hi <ник> <#bdbdbd>или <#7ed957>/q <ник>"
     self-action: "<#f08080>Нельзя выполнить это действие на себе"
+
+  byes:
+    - "<#e0e0e0>{player1} <#f7b2ad>попрощался с <#7ec8e3>{player2}"
+    - "<#7ec8e3>{player1} <#e0e0e0>говорит пока <#f7b2ad>{player2}"
+    - "<#f7b2ad>{player1} <#e0e0e0>желает удачи <#7ec8e3>{player2}"
+
+  fives:
+    - "<#7ed957>{player1} <#e0e0e0>даёт пять <#7ec8e3>{player2} ✋"
+    - "<#e0e0e0>{player1} <#7ed957>и <#7ec8e3>{player2} <#e0e0e0>обмениваются пятюней!"
+    - "<#7ec8e3>{player1} <#e0e0e0>и <#f7b2ad>{player2} <#e0e0e0>сделали хай-файв!"

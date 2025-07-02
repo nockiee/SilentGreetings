@@ -10,10 +10,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class HugCommand implements CommandExecutor {
+public class FiveCommand implements CommandExecutor {
     private final SilentiumGreetings plugin;
 
-    public HugCommand(SilentiumGreetings plugin) {
+    public FiveCommand(SilentiumGreetings plugin) {
         this.plugin = plugin;
     }
 
@@ -24,21 +24,18 @@ public class HugCommand implements CommandExecutor {
             return true;
         }
 
-        if (plugin.getCooldownManager().isOnCooldown(player, "hug")) {
+        // Кулдаун для five
+        if (plugin.getCooldownManager().isOnCooldown(player, "five")) {
             String msg = plugin.getConfig().getString("messages.errors.cooldown")
-                .replace("{time}", String.valueOf(plugin.getCooldownManager().getRemainingTime(player, "hug")));
+                .replace("{time}", String.valueOf(plugin.getCooldownManager().getRemainingTime(player, "five")));
             player.sendMessage(MessageUtils.colorize(msg));
             return true;
         }
 
-        Player target = plugin.getPlayerManager().findTargetPlayer(
-            player, 
-            plugin.getConfig().getDouble("settings.ranges.hug")
-        );
-
+        Player target = plugin.getPlayerManager().findTargetPlayer(player, 5.0);
         if (target == null) {
             String error = plugin.getConfig().getString("messages.errors.no-target")
-                .replace("{distance}", String.valueOf(plugin.getConfig().getDouble("settings.ranges.hug")));
+                .replace("{distance}", "5");
             player.sendMessage(MessageUtils.colorize(error));
             return true;
         }
@@ -48,24 +45,25 @@ public class HugCommand implements CommandExecutor {
             return true;
         }
 
-        String hugMsg = MessageUtils.formatMessage(
-            plugin.getConfig().getStringList("messages.hugs"),
+        String fiveMsg = MessageUtils.formatMessage(
+            plugin.getConfig().getStringList("messages.fives"),
             player.getName(),
             target.getName()
         );
 
         MessageUtils.sendToNearby(
             player,
-            hugMsg,
-            plugin.getConfig().getDouble("settings.ranges.hug-message")
+            fiveMsg,
+            plugin.getConfig().getDouble("settings.ranges.five-message")
         );
+        target.getWorld().spawnParticle(Particle.HEART, target.getLocation().add(0, 1.5, 0), 8);
+        target.playSound(target.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.2f);
 
-        target.getWorld().spawnParticle(Particle.HEART, target.getLocation().add(0, 1.5, 0), 5);
-        target.playSound(target.getLocation(), Sound.ENTITY_CAT_PURR, 1.0f, 1.0f);
+        // Установить кулдаун
         plugin.getCooldownManager().setCooldown(
-            player, 
-            "hug", 
-            plugin.getConfig().getInt("settings.timeouts.cooldown-hug")
+            player,
+            "five",
+            plugin.getConfig().getInt("settings.timeouts.cooldown-five", 10) // по умолчанию 10 сек
         );
 
         return true;
