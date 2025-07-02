@@ -1,0 +1,31 @@
+settings:
+  ranges:
+    hug: 3.0
+    hug-message: 50.0
+    greet-message: 50.0
+  
+  timeouts:
+    respect: 60
+    cooldown-hug: 10
+    cooldown-greet: 5
+
+  messages:
+    greetings:
+      - "&e{player1} &fприветствует &a{player2}"
+      - "&6{player1} &fмашет &b{player2}"
+    
+    hugs:
+      - "&c❤ &6{player1} &fобнимает &a{player2} &c❤"
+      - "&d⊂((・▽・))⊃ &e{player1} &f→ &b{player2}"
+    
+    respects:
+      - "&8⚰ &7{player} почтил(а) память &f{dead_player} &8⚰"
+      - "&f🕯 {player} скорбит по &c{dead_player} &f🕯"
+    
+    errors:
+      no-target: "&cИгрок не найден! Подойдите ближе (макс. {distance} блоков)"
+      player-offline: "&cИгрок оффлайн!"
+      cooldown: "&eПодождите {time} сек."
+      no-recent-death: "&7Нет недавних смертей"
+      usage: "&eИспользование: &a/hi <ник> &7или &a/q <ник>"
+      self-action: "&cНельзя выполнить это действие на себе"

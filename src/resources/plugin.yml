@@ -1,0 +1,14 @@
+name: Silentium-Greetings
+version: 1.3.0
+main: me.nockiee.silentiumgreetings.SilentiumGreetings
+api-version: "1.21"
+author: nockiee
+
+commands:
+  hi:
+    description: "Приветствие игрока"
+    aliases: [q, greeting]
+  hug:
+    description: "Обнять игрока"
+  f:
+    description: "Почтить память"
