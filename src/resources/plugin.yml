@@ -20,3 +20,9 @@ commands:
   five:
     description: "Дать пять игроку"
     aliases: [givefive, highfive]
+  place:
+    description: "Поделится своими координатами с игроком"
+    aliases: [pos, location]
+  kiss:
+    description: "Поцеловать игрока поблизости либо отправить воздушный поцелуй"
+    aliases: [airkiss, smooch]

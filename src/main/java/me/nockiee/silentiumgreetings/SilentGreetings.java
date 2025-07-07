@@ -16,10 +16,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SilentGreetings extends JavaPlugin implements Listener { // <--- Переименовано
+public class SilentGreetings extends JavaPlugin implements Listener {
     private PlayerData playerData;
     private CooldownManager cooldownManager;
     private PlayerManager playerManager;
+    private PlaceCommand placeCommand; // добавьте поле
 
     @Override
     public void onEnable() {
@@ -27,6 +28,7 @@ public class SilentGreetings extends JavaPlugin implements Listener { // <--- П
         this.playerData = new PlayerData(this);
         this.cooldownManager = new CooldownManager();
         this.playerManager = new PlayerManager();
+        placeCommand = new PlaceCommand(this);
 
         // Регистрация команд и алиасов из конфига
         registerCommandWithAliases("hi", new GreetCommand(this));
@@ -34,7 +36,14 @@ public class SilentGreetings extends JavaPlugin implements Listener { // <--- П
         registerCommandWithAliases("hug", new HugCommand(this));
         registerCommandWithAliases("five", new FiveCommand(this));
         registerCommandWithAliases("f", new FCommand(this));
+        registerCommandWithAliases("place", placeCommand);
+        registerCommandWithAliases("kiss", new KissCommand(this));
         getServer().getPluginManager().registerEvents(this, this);
+
+        // Периодическое обновление bossbar'ов
+        getServer().getScheduler().runTaskTimer(this, () -> {
+            placeCommand.tickAllBars();
+        }, 5L, 5L); // обновление каждые 0.25 секунды
 
         getLogger().info("Плагин успешно активирован!");
     }
