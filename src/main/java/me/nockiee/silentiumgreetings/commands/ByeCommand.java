@@ -9,6 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ByeCommand implements CommandExecutor {
     private final SilentGreetings plugin;
 
@@ -21,8 +24,9 @@ public class ByeCommand implements CommandExecutor {
         if (!(sender instanceof Player player)) return true;
 
         if (args.length == 0) {
-            // Сообщение для всех
-            String msg = plugin.getConfig().getString("messages.bye-all", "{player1} попрощался со всеми!");
+            List<String> msgs = plugin.getConfig().getStringList("messages.bye-all");
+            String msg = msgs.isEmpty() ? "{player1} попрощался со всеми!" :
+                msgs.get(ThreadLocalRandom.current().nextInt(msgs.size()));
             msg = msg.replace("{player1}", player.getName());
             Bukkit.broadcastMessage(plugin.colorize(msg));
             return true;

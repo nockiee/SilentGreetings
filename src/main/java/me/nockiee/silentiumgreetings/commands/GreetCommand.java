@@ -9,6 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class GreetCommand implements CommandExecutor {
     private final SilentGreetings plugin;
 
@@ -21,8 +24,15 @@ public class GreetCommand implements CommandExecutor {
         if (!(sender instanceof Player player)) return true;
 
         if (args.length == 0) {
-            // Сообщение для всех
-            String msg = plugin.getConfig().getString("messages.greet-all", "{player1} приветствует всех!");
+            // Было неправильно:
+            // String msg = plugin.getConfig().getString("messages.greet-all", "{player1} приветствует всех!");
+            // msg = msg.replace("{player1}", player.getName());
+            // Bukkit.broadcastMessage(plugin.colorize(msg));
+
+            // Должно быть:
+            List<String> msgs = plugin.getConfig().getStringList("messages.greet-all");
+            String msg = msgs.isEmpty() ? "{player1} приветствует всех!" :
+                msgs.get(ThreadLocalRandom.current().nextInt(msgs.size()));
             msg = msg.replace("{player1}", player.getName());
             Bukkit.broadcastMessage(plugin.colorize(msg));
             return true;
