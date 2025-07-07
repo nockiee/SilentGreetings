@@ -1,6 +1,6 @@
 package me.nockiee.silentiumgreetings.commands;
 
-import me.nockiee.silentiumgreetings.SilentiumGreetings;
+import me.nockiee.silentiumgreetings.SilentGreetings;
 import me.nockiee.silentiumgreetings.utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class FCommand implements CommandExecutor {
-    private final SilentiumGreetings plugin;
+    private final SilentGreetings plugin;
 
-    public FCommand(SilentiumGreetings plugin) {
+    public FCommand(SilentGreetings plugin) {
         this.plugin = plugin;
     }
 

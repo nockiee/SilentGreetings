@@ -1,7 +1,8 @@
 package me.nockiee.silentiumgreetings.commands;
 
-import me.nockiee.silentiumgreetings.SilentiumGreetings;
+import me.nockiee.silentiumgreetings.SilentGreetings;
 import me.nockiee.silentiumgreetings.utils.MessageUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,21 +10,21 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class GreetCommand implements CommandExecutor {
-    private final SilentiumGreetings plugin;
+    private final SilentGreetings plugin;
 
-    public GreetCommand(SilentiumGreetings plugin) {
+    public GreetCommand(SilentGreetings plugin) {
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
-        if (!(sender instanceof Player player)) {
-            sender.sendMessage(MessageUtils.colorize("&cТолько для игроков!"));
-            return true;
-        }
+        if (!(sender instanceof Player player)) return true;
 
         if (args.length == 0) {
-            player.sendMessage(MessageUtils.colorize(plugin.getConfig().getString("messages.errors.usage")));
+            // Сообщение для всех
+            String msg = plugin.getConfig().getString("messages.greet-all", "{player1} приветствует всех!");
+            msg = msg.replace("{player1}", player.getName());
+            Bukkit.broadcastMessage(plugin.colorize(msg));
             return true;
         }
 

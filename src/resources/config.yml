@@ -10,7 +10,14 @@ settings:
     respect: 60
     cooldown-hug: 10
     cooldown-greet: 5
-    cooldown-five: 10   # <--- добавлено
+    cooldown-five: 10
+
+aliases:
+  hi: [q, greeting, hello]
+  bye: [goodbye, bb]
+  hug: [neck, hg]
+  five: [givefive, highfive]
+  f: [pressf, respect]
 
 messages:
   greetings:
@@ -47,3 +54,6 @@ messages:
     - "<#7ed957>{player1} <#e0e0e0>даёт пять <#7ec8e3>{player2} ✋"
     - "<#e0e0e0>{player1} <#7ed957>и <#7ec8e3>{player2} <#e0e0e0>обмениваются пятюней!"
     - "<#7ec8e3>{player1} <#e0e0e0>и <#f7b2ad>{player2} <#e0e0e0>сделали хай-файв!"
+
+  greet-all: "<#7ed957>{player1} <#e0e0e0>поприветствовал всех!"
+  bye-all: "<#e0e0e0>{player1} <#f7b2ad>попрощался со всеми!"

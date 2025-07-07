@@ -1,6 +1,6 @@
 package me.nockiee.silentiumgreetings.commands;
 
-import me.nockiee.silentiumgreetings.SilentiumGreetings;
+import me.nockiee.silentiumgreetings.SilentGreetings;
 import me.nockiee.silentiumgreetings.utils.MessageUtils;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -11,9 +11,9 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class HugCommand implements CommandExecutor {
-    private final SilentiumGreetings plugin;
+    private final SilentGreetings plugin;
 
-    public HugCommand(SilentiumGreetings plugin) {
+    public HugCommand(SilentGreetings plugin) {
         this.plugin = plugin;
     }
 
